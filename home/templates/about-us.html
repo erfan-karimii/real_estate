@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+About-us
+{% endblock title %}
+
+
+  
+{% block content %}
+
+<body>
+
+
+  <!-- Page Content -->
+  <div class="page-heading about-heading header-text" style="background-image: url({% static 'assets/images/heading-1-1920x500.jpg'%});">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="text-content">
+            <h2>درباره ما</h2>
+            {% comment %} <h4>about us</h4> {% endcomment %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="best-features about-features">
+    <div class="container">
+      <div class="row">
+ 
+        <div class="col-md-6">
+          <div class="right-image">
+            <a href="{% url 'home:team'%}">
+            <img src="{% static 'assets/images/about-us-1.png'%}" alt="">
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="right-content">
+            <h4 style="text-align:right">.املاک شما</h4>
+            <p  style="text-align:right">.املاک شما ، یک بنگاه معاملات ملکی واقع در بابلسر می باشد 
+            <br>
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان 
+            </p>
+            <ul class="social-icons ">
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-spinner fa-spin"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="team-members">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-heading">
+            <h2>چرا املاک شما؟</h2>
+          </div>
+          <p style="text-align:right">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+{% endblock content %}

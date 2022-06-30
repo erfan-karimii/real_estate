@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Ourteam
+{% endblock title %}
+{% block content %}
+
+    <div class="page-heading about-heading header-text" style="background-image: url({% static 'assets/images/little-white-team.png'%});">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-content">
+              <h2>با تیم ما اشنا شو</h2>
+              {% comment %} <h4>Lorem ipsum dolor</h4> {% endcomment %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-members">
+      <div class="container">
+        <div class="row">
+          {% for person in people %}
+          <div class="col-md-4">
+            <div class="team-member">
+              <div class="thumb-container">
+                <img src="{{person.image.url}}" alt="{{person.name}}">
+                <div class="hover-effect">
+                  <div class="hover-content">
+                    <ul class="social-icons">
+                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                      <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                      <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="down-content">
+                <h4>{{person.name}}</h4>
+                <span>{{person.semat}}</span>
+                <p>{{person.tozih}}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+{% endblock content %}

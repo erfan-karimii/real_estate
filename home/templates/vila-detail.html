@@ -1,0 +1,277 @@
+{% extends 'base.html'%}
+{% block title %}
+Vila-detail
+{% endblock title %}
+{% load static %}
+{% load humanize %}
+{% block content%}
+<link rel="stylesheet" href="{% static 'assets/css/nicepage.css' %}" media="screen">
+<link rel="stylesheet" href="{% static 'assets/css/About.css' %}" media="screen">
+
+    <!-- Page Content -->
+    <div class="page-heading about-heading header-text" style="background-image: url({% static 'assets/images/heading-6-1920x500.jpg' %});">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-content">
+              <h2>{{post.titr}}</h2>
+              <h4>{{post.status_buy}}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="products">
+      <div class="container">
+              <p align="center" class="lead"><i class="fa fa-map-marker"></i>{{post.locations}}</p>
+              <br>
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="clearfix">
+              <span class="pull-left">ویلا</span>
+              
+              <strong class="pull-right">نوع</strong>
+            </div>
+          </li>
+          {% if post.gheymat %}
+          <li class="list-group-item">
+            <div class="clearfix">
+                <span class="pull-left">{{post.gheymat|intcomma}}</span>
+
+                <strong class="pull-right">قیمت</strong>
+            </div>
+          </li>
+          {% else %}
+
+          <li class="list-group-item">
+              <div class="clearfix">
+                <span class="pull-left">{{post.gheymat_rahn}}</span>
+                <strong class="pull-right">قیمت رهن</strong>
+              </div>
+          </li>
+          <li class="list-group-item">
+            <div class="clearfix">
+                <span class="pull-left">{{post.gheymat_ejare}}</span>
+
+                <strong class="pull-right">قیمت اجاره</strong>
+            </div>
+          </li>
+          {% endif %}                       
+          <li class="list-group-item">
+                <div class="clearfix">
+                    <span class="pull-left">{{post.andaze_zamin|intcomma}}</span>
+
+                    <strong class="pull-right">اندازه زمین</strong>
+                </div>
+          </li>
+          <li class="list-group-item">
+                <div class="clearfix">
+                    <span class="pull-left">{{post.andaze_bana}}</span>
+
+                    <strong class="pull-right">اندازه بنا</strong>
+                </div>
+          </li>
+          <li class="list-group-item">
+                <div class="clearfix">
+                    <span class="pull-left">{{post.tedad_otagh}}</span>
+
+                    <strong class="pull-right">تعداد اتاق</strong>
+                </div>
+          </li>
+      
+        
+          <li class="list-group-item">
+                <div class="clearfix">
+                    <span class="pull-left">{{post.ghabel_moaveze}}</span>
+
+                    <strong class="pull-right">قابل معاوضه؟</strong>
+                </div>
+          </li>
+
+          <li class="list-group-item">
+                <div class="clearfix">
+                    <span class="pull-left">{{post.id}}</span>
+
+                    <strong class="pull-right">کد ویلا</strong>
+                </div>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+       
+    <body>
+      <section class="u-section-1" id="sec-05cd">
+  
+          <div class="u-carousel  u-layout-thumbnails  u-gallery-1" id="carousel-e131" data-interval="5000" data-u-ride="carousel">
+            <div class="u-carousel-inner u-gallery-inner" role="listbox">
+              <div class="u-active u-carousel-item u-gallery-item ">
+               <div class="u-back-slide">
+                 <img class="u-back-image u-expanded" src='{{post.image.url}}'>
+               </div>
+             </div>
+               {% for x in image_posts %}
+                {% if  forloop.counter  == 1 %}
+                <div class=" u-carousel-item u-gallery-item u-carousel-item-1">
+                  <div class="u-back-slide">
+                    <img class="u-back-image u-expanded" src='{{x.images.url}}'>
+                  </div>
+                </div>
+                {% else %}
+                <div class="u-carousel-item u-gallery-item u-carousel-item-{{ forloop.counter }}">
+                  <div class="u-back-slide">
+                    <img class="u-back-image u-expanded" src='{{x.images.url}}'>
+                  </div>
+                </div>
+                {% endif %}
+              {% endfor %}
+              
+  
+            </div>
+            <a class="u-absolute-vcenter u-carousel-control u-carousel-control-prev u-grey-70 u-icon-circle u-opacity u-opacity-70 u-spacing-10 u-text-white u-carousel-control-1" href="#carousel-e131" role="button" data-u-slide="prev">
+              <span aria-hidden="true">
+                <svg viewBox="0 0 451.847 451.847"><path d="M97.141,225.92c0-8.095,3.091-16.192,9.259-22.366L300.689,9.27c12.359-12.359,32.397-12.359,44.751,0
+  c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
+  c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"></path></svg>
+              </span>
+              <span class="sr-only">
+                <svg viewBox="0 0 451.847 451.847"><path d="M97.141,225.92c0-8.095,3.091-16.192,9.259-22.366L300.689,9.27c12.359-12.359,32.397-12.359,44.751,0
+  c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
+  c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"></path></svg>
+              </span>
+            </a>
+            <a class="u-absolute-vcenter u-carousel-control u-carousel-control-next u-grey-70 u-icon-circle u-opacity u-opacity-70 u-spacing-10 u-text-white u-carousel-control-2" href="#carousel-e131" role="button" data-u-slide="next">
+              <span aria-hidden="true">
+                <svg viewBox="0 0 451.846 451.847"><path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
+  L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
+  c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path></svg>
+              </span>
+              <span class="sr-only">
+                <svg viewBox="0 0 451.846 451.847"><path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
+  L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
+  c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path></svg>
+              </span>
+            </a>
+            <ol class="u-carousel-thumbnails u-spacing-10 u-carousel-thumbnails-1">
+              <li class="u-carousel-thumbnail u-carousel-thumbnail-1" data-u-target="#carousel-e131" data-u-slide-to="0">
+                <img class="u-carousel-thumbnail-image u-image" src="{{post.image.url}}">
+              {% for x in image_posts%}           
+              <li class="u-carousel-thumbnail u-carousel-thumbnail-1" data-u-target="#carousel-e131" data-u-slide-to="0">
+                <img class="u-carousel-thumbnail-image u-image" src="{{x.images.url}}">
+              {% endfor %}
+            </ol>
+          </div>
+        </div>
+      </section>
+  
+  </body>
+      </div>
+    </div>
+
+
+    <div class="section">
+      <div class="container">
+        <div class="section-heading">
+          <h2 style="text-align:center">توضیحات</h2>
+        </div>
+
+        <div class="left-content">
+          <div class="row">
+            <div class="col-lg-9">
+              <p style="text-align:right">{{post.tozihat_karbar}}</p> 
+            </div>
+
+            {% comment %} <div class="col-lg-3">
+              <ul>
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Lorem ipsum dolor sit amet.</li>
+              </ul>
+            </div> {% endcomment %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          {% if post.map_1 %}
+          
+          <div class="col-md-9">
+            <div class="section-heading">
+              <h2 style="text-align:center">نقشه</h2>
+            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.8856720999906!2d52.660520328242306!3d36.70128511690528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8f804bd19e1245%3A0x9cb1caf6fa2ff90f!2sBabolsar%2C%20Mazandaran%20Province%2C%20Iran!5e0!3m2!1sen!2s!4v1654057674697!5m2!1sen!2s" width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>   
+          </div>
+          
+          <div class="col-md-3" >
+             
+            <h2 style="text-align:center">اطلاعات تماس</h2>
+       
+            <p style="text-align:center">
+                <img src="{{post.moshakhasat.image.url}}"></img>
+            </p>
+              
+              
+            <p style="text-align:center">
+              <span >نام</span>
+              
+              <br>
+              
+              <strong>{{post.moshakhasat.name}}</strong>
+            </p>
+            <p style="text-align:center">
+              <span>شماره همراه</span>
+              
+              <br>
+              
+              <strong >
+                <a href="tel:{{post.moshakhasat.phone}}">{{post.moshakhasat.phone}}</a>
+              </strong>
+            
+            </p>
+        </div>
+            {% else %}
+            <div class="col-md-9">       
+            </div>
+            <div class="col-md-3" >
+             
+                <h2 style="text-align:center">اطلاعات تماس</h2>
+           
+                <p style="text-align:center">
+                    <img src="{{post.moshakhasat.image.url}}"></img>
+                </p>
+                  
+                  
+                <p style="text-align:center">
+                  <span >نام</span>
+                  
+                  <br>
+                  
+                  <strong>{{post.moshakhasat.name}}</strong>
+                </p>
+                <p style="text-align:center">
+                  <span>شماره همراه</span>
+                  
+                  <br>
+                  
+                  <strong >
+                    <a href="tel:{{post.moshakhasat.phone}}">{{post.moshakhasat.phone}}</a>
+                  </strong>
+                </p>
+            </div>
+
+          {% endif %}
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock %} 

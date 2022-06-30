@@ -1,0 +1,63 @@
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="{% static 'assets/css/style2.css' %}">
+</head>
+
+<body>
+    <div class="footer-clean">
+        <footer>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-sm-4 col-md-3 item">
+                        <h3>:خونه ویلایی</h3>
+                        <ul>
+                            <li><a href="{% url 'posts:footer_view' 'vila_kharid'%}">خرید</a></li>
+                            <li><a href="{% url 'posts:footer_view' 'vila_rahn'%}">رهن و اجاره</a></li>
+                            <li><a href="{% url 'posts:footer_view' 'vila_vise'%}">شرایط ویژه</a></li>
+                        </ul>
+                        <hr>
+                    </div>
+                    <div class="col-sm-4 col-md-3 item">
+                        <h3>:اپارتمان</h3>
+                        <ul>
+                            <li><a href="{% url 'posts:footer_view' 'aparteman_kharid'%}">خرید</a></li>
+                            <li><a href="{% url 'posts:footer_view' 'aparteman_rahn'%}">رهن و اجاره</a></li>
+                            <li><a href="{% url 'posts:footer_view' 'aparteman_vise'%}">شرایط ویژه</a></li>
+                        </ul>
+                        <hr>
+                    </div>
+                    <div class="col-sm-4 col-md-3 item">
+                        <h3>:زمین</h3>
+                        <ul>
+                            <li><a href="{% url 'posts:footer_view' 'zamin_maskoni'%}">مسکونی</a></li>
+                            <li><a href="{% url 'posts:footer_view' 'zamin_bag'%}">باغ</a></li>
+                            <li><a href="{% url 'posts:footer_view' 'zamin_tafrihi'%}">تفریحی توریستی</a></li>
+                        </ul>
+                        <hr>
+                    </div>
+		            <div class="col-sm-4 col-md-3 item">
+                        <h3>:لینک های مفید</h3>
+                        <ul>
+                            <li><a href="{% url 'home:about'%}">درباره ما</a></li>
+                            <li><a href="#">شرایط و ضوابط</a></li>
+                            <li><a href="{% url 'home:team' %}">تیم ما</a></li>
+                        </ul>
+                        <hr>
+                    </div>
+                   
+		<p align ='center'>CopyRight is for <a href="#">us </a>baby</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

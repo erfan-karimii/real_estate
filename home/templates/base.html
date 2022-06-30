@@ -1,0 +1,95 @@
+{% load static %}<!DOCTYPE html >
+<html lang="fa-IR">
+    <head>
+      
+      
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content=" سایت املااک شما اماده برای مشاوره برای خرید ، غروش ، رهن و اجاره ملک شما ">
+        <link rel="icon" href="{% static 'assets/images/favicon_c.ico' %}"> 
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+        <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+        
+        <title>
+          {% block title %}
+          {% endblock title %}
+        </title>
+        
+        <!-- Bootstrap core CSS -->
+        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        
+        <!-- Additional CSS Files -->
+        <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+        
+        
+      </head>
+  <header class="">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'home:home'%}"><h2>املاک <em>شما</em></h2></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            
+            <li class="nav-item {% if activebar == 'home' %}active{% endif %}">
+              <a class="nav-link" href="{% url 'home:home'%}">خانه
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li> 
+            
+              <li class="nav-item {% if activebar == 'vila' %}active{% endif %}"><a class="nav-link " href="{% url 'posts:listview-vila' %}">ویلا</a></li>
+              
+              <li class="nav-item {% if activebar == 'aparteman' %}active{% endif %}"><a class="nav-link " href="{% url 'posts:listview-aparteman' %}">اپارتمان</a></li>
+              
+              <li class="nav-item {% if activebar == 'zamin' %}active{% endif %}"><a class="nav-link " href="{% url 'posts:listview-zamin' %}">زمین</a></li>
+              
+              <li class="nav-item {% if activebar == 'about' %}active{% endif %}"><a class="nav-link" href="{% url 'home:about'%}">درباره ما</a></li>
+            
+              {% comment %} <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More</a>
+                
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="blog.html">Blog</a>
+                  <a class="dropdown-item" href="team.html">Team</a>
+                  <a class="dropdown-item" href="testimonials.html">Testimonials</a>
+                  <a class="dropdown-item" href="terms.html">Terms</a>
+                </div>
+              </li> {% endcomment %}
+              
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    {% block content%}
+
+    {% endblock content %} 
+</body>
+    {% include 'footer.html' %}
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+
+    <!-- Additional Scripts -->
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+    <script src="{% static 'assets/js/owl.js' %}"></script>
+    <script class="u-script" type="text/javascript" src="{% static 'assets/js/jquery.js' %}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static 'assets/js/nicepage.js' %}" defer=""></script>
+  </body>
+  
+</html>  

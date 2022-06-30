@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block title %}
+{{title}}
+{% endblock title %}
+{% block content %}
+{% load static %}
+    <!-- Page Content -->
+    <div class="page-heading about-heading header-text" style="background-image: url({% static 'assets/images/heading-6-1920x500.jpg'%});">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-content">
+              <h2>جست وجو سریع</h2>
+              {% comment %} <h4>Lorem ipsum dolor sit amet</h4> {% endcomment %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="products">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              {% for apa in post %}
+              <div class="col-md-4">
+                <div class="product-item">
+                  <a href="
+                  {% if apa.andaze_bana %} 
+                  {% url 'posts:detailview-vila' apa.id%}
+                  {% elif apa.noe_zamin%}
+                  {% url 'posts:detailview-zamin' apa.id%}
+                  {% else %}
+                  {% url 'posts:detailview-aparteman' apa.id%}
+                  {% endif %}
+                  "><img src="{{apa.image.url}}" alt="{{apa.titr}}" height="208" width="151.78"></a>
+                  <div class="down-content">
+                    <h4>{{apa.titr}}</h4>
+
+                    <h6>
+                      {% if apa.gheymat %}
+                      geymat : {{apa.gheymat}}<br>
+                      <br>
+                      {% if apa.noe_zamin %}
+                      noe_zamin: {{apa.noe_zamin}}
+                      {% endif %}
+                      
+                      {% else %}
+                      geymat_rahn:{{apa.gheymat_rahn}}<br>geymat_ejare:{{apa.gheymat_ejare}}
+                      {% endif %}
+                    </h6>
+
+                    {% if apa.status_buy %}
+                    <p>
+                      {% if apa.andaze_bana %}
+                      vila
+                      {% else %}
+                      aparteman
+                      {% endif %}
+                       
+                      &nbsp;/&nbsp; {{apa.status_buy}} &nbsp;/&nbsp;
+                      {% if apa.sal_sakht %}
+                      {{apa.sal_sakht}} sal_sakht
+                      {% else %}
+                      nosaz
+                      {% endif %}
+                    </p>
+                    {% endif %}
+
+                    <h6>{{apa.locations|truncatechars:24}}</h6>
+                    {% if apa.tedad_otagh %}
+                    <small>
+                      <strong title="Bedrooms"><i class="fa fa-bed"></i> Bedrooms: {{apa.tedad_otagh}}</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                      <strong title="Bathrooms"><i class="fa fa-tint"></i> Bathrooms: {{apa.tedad_dastshoe}}</strong>
+                    </small>
+                    {% endif %}
+                    <hr>
+                    {% if apa.andaze_bana %}                    
+                    <p align='center'><big><a href='{% url 'posts:detailview-vila' apa.id%}'>more</a></big></p>
+                    {% elif apa.noe_zamin%}
+                    <p align='center'><big><a href='{% url 'posts:detailview-zamin' apa.id%}'>more</a></big></p>
+                    {% else %}
+                    <p align='center'><big><a href='{% url 'posts:detailview-aparteman' apa.id%}'>more</a></big></p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+                {% endfor %}
+            </div>
+          </div> 
+         
+  
+         
+       
+  
+      
+           
+        </div>
+      </div>
+
+{% endblock %}
